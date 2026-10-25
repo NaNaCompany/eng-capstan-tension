@@ -1,0 +1,53 @@
+{
+  "id": "E125",
+  "value": 658.6061962694724,
+  "value_high_precision": "658.60619626947239160452321638554435857046219973532953148036165463876223531555361",
+  "method": "Independent Python Decimal arithmetic at 80 significant digits; Taylor series for sine and arcsine, Decimal exp/sqrt, separate physical balance or geometry. No JavaScript imports.",
+  "cases": [
+    {
+      "name": "frictionless drum has equal tensions",
+      "values": {
+        "friction": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "name": "zero wrap has equal tensions",
+      "values": {
+        "wrap": 0
+      },
+      "expected": 100.0
+    },
+    {
+      "name": "two full wraps are accepted",
+      "values": {
+        "wrap": 12.566370614359172
+      },
+      "expected": 4337.621217645428
+    },
+    {
+      "name": "zero lower tension exact zero",
+      "values": {
+        "tension": 0
+      },
+      "expected": 0.0
+    },
+    {
+      "name": "large exponential balanced by small tension",
+      "values": {
+        "tension": 1e-300,
+        "friction": 1,
+        "wrap": 1000
+      },
+      "expected": 1.970071114017047e+134
+    },
+    {
+      "name": "unrepresentable capstan limit rejected",
+      "values": {
+        "friction": 1,
+        "wrap": 10000
+      },
+      "throws": true
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "E125",
+  "slug": "eng-capstan-tension",
+  "title": "캡스턴 로프 한계장력 계산기",
+  "title_en": "Capstan limiting rope tension calculator",
+  "category": "역학·재료",
+  "category_en": "Mechanics and materials",
+  "fields": [
+    {
+      "key": "tension",
+      "label": "작은 쪽 장력 Tₛ",
+      "label_en": "Lower rope tension Tₛ",
+      "dimension": "force",
+      "example": 100,
+      "constraint": "nonnegative",
+      "display_unit": "N",
+      "display_value": "100"
+    },
+    {
+      "key": "friction",
+      "label": "정지마찰계수 μₛ",
+      "label_en": "Static friction coefficient μₛ",
+      "dimension": "ratio",
+      "example": 0.3,
+      "constraint": "nonnegative",
+      "display_unit": "1",
+      "display_value": "0.29999999999999999"
+    },
+    {
+      "key": "wrap",
+      "label": "총 감김각 θ",
+      "label_en": "Total wrap angle θ",
+      "dimension": "angle",
+      "example": 6.283185307179586,
+      "constraint": "nonnegative",
+      "display_unit": "rad",
+      "display_value": "6.2831853071795862"
+    }
+  ],
+  "result_label": "미끄럼 직전 큰 쪽 장력 Tₗ",
+  "result_label_en": "Limiting higher tension Tₗ",
+  "result_dimension": "force",
+  "formula": "Tₗ = Tₛ exp(μₛ θ)",
+  "purpose": "드럼에 감긴 로프가 미끄러지기 직전에 지탱할 수 있는 큰 쪽 장력을 계산합니다.",
+  "purpose_en": "Find the larger rope tension at impending slip around a cylindrical drum.",
+  "assumptions": "질량과 굽힘강성을 무시하는 유연한 로프, 일정한 정지마찰계수, 드럼과의 연속 접촉을 가정합니다. θ는 전체 접촉 감김각이며 여러 바퀴를 입력할 수 있습니다. 출력은 로프의 파단장력이나 드럼 강도가 아닙니다. 로프에 추가되는 독립 하중·홈 형상 효과는 제외합니다.",
+  "assumptions_en": "Required: a flexible rope with negligible mass and bending stiffness, uniform static friction, and continuous drum contact. θ is the total contact wrap angle and may exceed one revolution. The result is a friction limit. Excluded: rope breaking strength, drum strength, added distributed loads, and groove effects.",
+  "sources": [
+    {
+      "label": "MIT — capstan worked example",
+      "url": "https://web.mit.edu/8.01T/www/materials/Presentations/Presentation_W03D1.pdf"
+    }
+  ],
+  "condition": "유연한 로프의 정지마찰 한계 모델을 확인했습니다.",
+  "condition_en": "I confirm the flexible-rope static-friction limit model.",
+  "site": "https://nanalab.kr/eng-capstan-tension/",
+  "repository": "https://github.com/NaNaCompany/eng-capstan-tension",
+  "groups": [],
+  "output_unit": "N"
+}
